@@ -1,28 +1,25 @@
 @page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Spot the Freebie 🦋</PageTitle>
 
-<!-- ===== HEADER ROW ===== -->
 <div class="container-fluid header-bar py-3">
     <div class="container">
         <div class="row align-items-center">
 
-            <!-- Przycisk lewy -->
-            <div class="col-4 d-flex justify-content-start">
+            <div class="col-4">
                 <button class="btn btn-outline-pink btn-lg rounded-pill">
                     🎲 Losuj darmową grę
                 </button>
             </div>
 
-            <!-- Tytuł w środku -->
-            <div class="col-4 d-flex justify-content-center">
-                <div class="title-box px-4 py-2">
+            <div class="col-4 text-center">
+                <div class="title-box px-4 py-2 d-inline-block">
                     <span class="title-text">🦋 Spot the Freebie</span>
                 </div>
             </div>
 
-            <!-- Przycisk prawy -->
-            <div class="col-4 d-flex justify-content-end">
+            <div class="col-4 text-end">
                 <button class="btn btn-outline-pink btn-lg rounded-pill">
                     🏷️ Losuj promocyjną grę
                 </button>
@@ -32,78 +29,53 @@
     </div>
 </div>
 
-<!-- ===== KARTY GIER ===== -->
 <div class="container my-5">
-    <div class="row g-4 justify-content-center">
+    <div class="row g-4">
 
-        <!-- Karta 1 -->
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="game-card">
-                <div class="game-card-img-placeholder">
-                    <span class="placeholder-icon">🎮</span>
+        <div class="col-3">
+            <div class="game-card @(selectedCard == 1 ? "selected" : "")" @onclick="() => SelectCard(1)">
+                <div class="game-img-area">
+                    <span>🎮</span>
                 </div>
-                <div class="game-card-body">
-                    <h6 class="game-title placeholder-glow">
-                        <span class="placeholder col-8"></span>
-                    </h6>
-                    <p class="game-price">
-                        <span class="price-label">Cena:</span>
-                        <span class="price-hidden">??? zł</span>
-                    </p>
+                <div class="game-info">
+                    <p class="placeholder-glow mb-1"><span class="placeholder col-8"></span></p>
+                    <span class="price">??? zł</span>
                 </div>
             </div>
         </div>
 
-        <!-- Karta 2 -->
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="game-card">
-                <div class="game-card-img-placeholder">
-                    <span class="placeholder-icon">🎮</span>
+        <div class="col-3">
+            <div class="game-card @(selectedCard == 2 ? "selected" : "")" @onclick="() => SelectCard(2)">
+                <div class="game-img-area">
+                    <span>🎮</span>
                 </div>
-                <div class="game-card-body">
-                    <h6 class="game-title placeholder-glow">
-                        <span class="placeholder col-7"></span>
-                    </h6>
-                    <p class="game-price">
-                        <span class="price-label">Cena:</span>
-                        <span class="price-hidden">??? zł</span>
-                    </p>
+                <div class="game-info">
+                    <p class="placeholder-glow mb-1"><span class="placeholder col-7"></span></p>
+                    <span class="price">??? zł</span>
                 </div>
             </div>
         </div>
 
-        <!-- Karta 3 -->
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="game-card">
-                <div class="game-card-img-placeholder">
-                    <span class="placeholder-icon">🎮</span>
+        <div class="col-3">
+            <div class="game-card @(selectedCard == 3 ? "selected" : "")" @onclick="() => SelectCard(3)">
+                <div class="game-img-area">
+                    <span>🎮</span>
                 </div>
-                <div class="game-card-body">
-                    <h6 class="game-title placeholder-glow">
-                        <span class="placeholder col-9"></span>
-                    </h6>
-                    <p class="game-price">
-                        <span class="price-label">Cena:</span>
-                        <span class="price-hidden">??? zł</span>
-                    </p>
+                <div class="game-info">
+                    <p class="placeholder-glow mb-1"><span class="placeholder col-9"></span></p>
+                    <span class="price">??? zł</span>
                 </div>
             </div>
         </div>
 
-        <!-- Karta 4 -->
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="game-card">
-                <div class="game-card-img-placeholder">
-                    <span class="placeholder-icon">🎮</span>
+        <div class="col-3">
+            <div class="game-card @(selectedCard == 4 ? "selected" : "")" @onclick="() => SelectCard(4)">
+                <div class="game-img-area">
+                    <span>🎮</span>
                 </div>
-                <div class="game-card-body">
-                    <h6 class="game-title placeholder-glow">
-                        <span class="placeholder col-6"></span>
-                    </h6>
-                    <p class="game-price">
-                        <span class="price-label">Cena:</span>
-                        <span class="price-hidden">??? zł</span>
-                    </p>
+                <div class="game-info">
+                    <p class="placeholder-glow mb-1"><span class="placeholder col-6"></span></p>
+                    <span class="price">??? zł</span>
                 </div>
             </div>
         </div>
@@ -111,216 +83,18 @@
     </div>
 </div>
 
-<!-- ===== PRZYCISK SPRAWDŹ ===== -->
 <div class="container text-center my-4">
-    <button class="btn btn-check-it btn-lg px-5 py-3 rounded-pill">
+    <button class="btn btn-sprawdz btn-lg px-5 py-3 rounded-pill"
+            disabled="@(selectedCard == null)">
         ✨ SPRAWDŹ ✨
     </button>
 </div>
 
-<!-- ===== STATYSTYKI SESJI ===== -->
-<div class="container my-5">
-    <div class="stats-panel">
-        <h5 class="stats-title">📊 Statystyki sesji</h5>
-        <div class="row mt-3 g-3">
-            <div class="col-4 text-center">
-                <div class="stat-box">
-                    <div class="stat-value">—</div>
-                    <div class="stat-label">Poprawne odpowiedzi</div>
-                </div>
-            </div>
-            <div class="col-4 text-center">
-                <div class="stat-box">
-                    <div class="stat-value">—</div>
-                    <div class="stat-label">Błędne odpowiedzi</div>
-                </div>
-            </div>
-            <div class="col-4 text-center">
-                <div class="stat-box">
-                    <div class="stat-value">—</div>
-                    <div class="stat-label">Skuteczność</div>
-                </div>
-            </div>
-        </div>
+@code {
+    private int? selectedCard = null;
 
-        <!-- Miejsce na przyszły wykres -->
-        <div class="chart-placeholder mt-4">
-            <span class="chart-placeholder-text">📈 Miejsce na wykres</span>
-        </div>
-    </div>
-</div>
-
-
-<style>
-    /* ===== TEMATYKA OGÓLNA ===== */
-    body {
-        background-color: #121212;
-        color: #e0e0e0;
-        font-family: 'Segoe UI', sans-serif;
+    private void SelectCard(int cardIndex)
+    {
+        selectedCard = cardIndex;
     }
-
-    /* ===== HEADER ===== */
-    .header-bar {
-        background-color: #1a1a1a;
-        border-bottom: 1px solid #2e2e2e;
-    }
-
-    .title-box {
-        border: 2px solid #c2185b;
-        border-radius: 12px;
-        box-shadow: 0 0 12px rgba(194, 24, 91, 0.4);
-        background-color: #1e1e1e;
-    }
-
-    .title-text {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: #f48fb1;
-        white-space: nowrap;
-        letter-spacing: 0.03em;
-    }
-
-    /* ===== PRZYCISK OUTLINE PINK ===== */
-    .btn-outline-pink {
-        color: #f48fb1;
-        border-color: #c2185b;
-        background-color: transparent;
-        transition: all 0.2s ease;
-    }
-
-    .btn-outline-pink:hover {
-        background-color: #c2185b;
-        color: #fff;
-        border-color: #c2185b;
-        box-shadow: 0 0 10px rgba(194, 24, 91, 0.5);
-    }
-
-    /* ===== KARTY GIER ===== */
-    .game-card {
-        background-color: #1e1e1e;
-        border-radius: 14px;
-        overflow: hidden;
-        border: 1px solid #2a2a2a;
-        box-shadow: 0 4px 16px rgba(194, 24, 91, 0.25);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .game-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(194, 24, 91, 0.45);
-    }
-
-    .game-card-img-placeholder {
-        background-color: #2a2a2a;
-        height: 140px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .placeholder-icon {
-        font-size: 3rem;
-        opacity: 0.35;
-    }
-
-    .game-card-body {
-        padding: 0.9rem 1rem;
-    }
-
-    .game-title {
-        color: #f0f0f0;
-        margin-bottom: 0.4rem;
-        font-size: 0.95rem;
-    }
-
-    /* Bootstrap placeholder kolor */
-    .placeholder {
-        background-color: #3a3a3a !important;
-    }
-
-    .game-price {
-        margin: 0;
-        font-size: 0.85rem;
-    }
-
-    .price-label {
-        color: #888;
-        margin-right: 4px;
-    }
-
-    .price-hidden {
-        color: #c2185b;
-        font-weight: 600;
-        letter-spacing: 0.05em;
-    }
-
-    /* ===== PRZYCISK SPRAWDŹ ===== */
-    .btn-check-it {
-        background: linear-gradient(135deg, #ad1457, #c2185b);
-        color: #fff;
-        font-weight: 700;
-        font-size: 1.1rem;
-        letter-spacing: 0.1em;
-        border: none;
-        box-shadow: 0 4px 20px rgba(194, 24, 91, 0.5);
-        transition: all 0.25s ease;
-    }
-
-    .btn-check-it:hover {
-        background: linear-gradient(135deg, #c2185b, #e91e8c);
-        box-shadow: 0 6px 28px rgba(194, 24, 91, 0.7);
-        color: #fff;
-        transform: scale(1.04);
-    }
-
-    /* ===== PANEL STATYSTYK ===== */
-    .stats-panel {
-        background-color: #1a1a1a;
-        border: 1px solid #2e2e2e;
-        border-radius: 14px;
-        padding: 1.5rem 2rem;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-    }
-
-    .stats-title {
-        color: #f48fb1;
-        font-weight: 700;
-        border-bottom: 1px solid #2e2e2e;
-        padding-bottom: 0.5rem;
-        margin-bottom: 0;
-    }
-
-    .stat-box {
-        background-color: #242424;
-        border-radius: 10px;
-        padding: 1rem 0.5rem;
-        border: 1px solid #2e2e2e;
-    }
-
-    .stat-value {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #c2185b;
-    }
-
-    .stat-label {
-        font-size: 0.78rem;
-        color: #888;
-        margin-top: 0.2rem;
-    }
-
-    .chart-placeholder {
-        background-color: #1e1e1e;
-        border: 2px dashed #3a3a3a;
-        border-radius: 10px;
-        height: 160px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .chart-placeholder-text {
-        color: #555;
-        font-size: 0.95rem;
-    }
-</style>
+}
