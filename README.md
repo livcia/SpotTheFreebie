@@ -10,7 +10,7 @@ The application will typically be available at `http://localhost:5000` or `https
 Watch the project in action:
 
 [![Watch the video](https://img.youtube.com/vi/ROTBubuCTV0/hqdefault.jpg)](https://youtu.be/ROTBubuCTV0?si=UPrzcNK5F-ylEPBH)  
-
+https://youtu.be/ROTBubuCTV0?si=pQE0VscFLSW_7PZj
 ---
 
 ## Features
