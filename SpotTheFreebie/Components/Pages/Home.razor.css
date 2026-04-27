@@ -1,0 +1,132 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+.game-card {
+    background-color: #1e1e1e;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 4px 16px rgba(194, 24, 91, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(194, 24, 91, 0.45);
+}
+
+.game-card.selected {
+    border: 2px solid #c2185b;
+    box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.35), 0 8px 24px rgba(194, 24, 91, 0.4);
+    transform: translateY(-4px);
+}
+
+.game-img-area {
+    background-color: #2a2a2a;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.game-info {
+    padding: 0.8rem 1rem;
+}
+
+.placeholder {
+    background-color: #3a3a3a !important;
+}
+
+.price {
+    color: #c2185b;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.price-strikethrough {
+    color: #f48fb1;
+    font-size: 0.85rem;
+    text-decoration: line-through;
+    text-decoration-color: #c2185b;
+    text-decoration-thickness: 2px;
+    margin-right: 6px;
+    opacity: 0.8;
+}
+
+.price-sale {
+    color: #4caf50;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.price-free {
+    color: #00e676;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 8px rgba(0, 230, 118, 0.4);
+}
+
+.pink-tab {
+    background-color: #c2185b !important;
+    color: white !important;
+    border-color: #c2185b !important;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+}
+
+.nav-tabs .nav-link {
+    border-radius: 8px 8px 0 0;
+    transition: background-color 0.2s;
+    background-color: #1a1a1a;
+    margin-right: 5px;
+}
+
+.nav-tabs .nav-link:hover:not(.active) {
+    background-color: #2a2a2a;
+    border-color: transparent;
+}
+
+.chart-bar {
+    transition: height 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.chart-val {
+    opacity: 0;
+    animation: fadeInVal 0.5s ease forwards 0.8s;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInVal {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
