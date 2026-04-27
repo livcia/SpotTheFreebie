@@ -37,14 +37,12 @@
     else
     {
         <div class="game-card-wide row g-0 m-0">
-            <!-- Kolumna ze zdjęciem (Lewa) -->
             <div class="col-md-5 p-0">
                 <div class="game-img-area-wide h-100 w-100 d-flex justify-content-center align-items-center">
                     <img src="@game.Thumb" alt="Game thumbnail" class="w-100 h-100 p-3" style="object-fit: contain;" />
                 </div>
             </div>
             
-            <!-- Kolumna z tekstem i ofertami (Prawa) -->
             <div class="col-md-7 p-4 p-md-5 d-flex flex-column text-center text-md-start">
                 <h2 class="mb-4 game-title">@game.Title</h2>
                 
@@ -59,7 +57,6 @@
                     </div>
                 </div>
 
-                <!-- SEKCJA Z OFERTAMI -->
                 <div class="deals-section mt-2 mb-4 text-start flex-grow-1">
                     <h5 class="mb-3" style="color: #f48fb1; font-weight: 700;">🛒 Dostępne oferty:</h5>
                     @if (isLoadingDeals)

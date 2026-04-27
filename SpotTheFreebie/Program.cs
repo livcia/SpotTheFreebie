@@ -36,21 +36,18 @@ app.MapGet("/api/games/stats", async (IHttpClientFactory httpClientFactory) =>
 
     try
     {
-        // 1. Pobierz darmowe gry i sprawdź status HTTP
         var freeResponse = await http.GetAsync("https://www.freetogame.com/api/games");
         if (!freeResponse.IsSuccessStatusCode)
             return Results.Problem($"FreeToGame API zwróciło błąd: {(int)freeResponse.StatusCode}", statusCode: 502);
 
         var freeGames = await freeResponse.Content.ReadFromJsonAsync<List<FreeGame>>();
 
-        // 2. Pobierz aktualne promocje z CheapShark (sortowane po oszczędnościach) i sprawdź status HTTP
         var dealsResponse = await http.GetAsync("https://www.cheapshark.com/api/1.0/deals?sortBy=Savings&pageSize=60");
         if (!dealsResponse.IsSuccessStatusCode)
             return Results.Problem($"CheapShark API zwróciło błąd: {(int)dealsResponse.StatusCode}", statusCode: 502);
 
         var deals = await dealsResponse.Content.ReadFromJsonAsync<List<PaidGame>>();
 
-        // 3. Agregacja: grupowanie darmowych gier po gatunku (Top 5)
         var topGenres = freeGames?
             .GroupBy(g => g.Genre)
             .Select(g => new { Genre = g.Key, Count = g.Count() })
@@ -58,7 +55,6 @@ app.MapGet("/api/games/stats", async (IHttpClientFactory httpClientFactory) =>
             .Take(5)
             .ToList();
 
-        // 4. Filtrowanie: Top 10 promocji z największym rabatem
         var topDeals = deals?
             .Where(d => double.TryParse(d.Savings, NumberStyles.Any, CultureInfo.InvariantCulture, out _))
             .OrderByDescending(d => double.Parse(d.Savings, CultureInfo.InvariantCulture))
@@ -72,7 +68,6 @@ app.MapGet("/api/games/stats", async (IHttpClientFactory httpClientFactory) =>
             })
             .ToList();
 
-        // 5. Agregacja: średnia cena promocyjna (tylko gry > 0$)
         var avgSalePrice = deals?
             .Where(d => double.TryParse(d.SalePrice, NumberStyles.Any, CultureInfo.InvariantCulture, out double v) && v > 0)
             .Select(d => double.Parse(d.SalePrice, CultureInfo.InvariantCulture))
