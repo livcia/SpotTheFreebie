@@ -1,0 +1,55 @@
+.game-card-large {
+    background-color: #1e1e1e;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid #2a2a2a;
+    box-shadow: 0 8px 32px rgba(194, 24, 91, 0.2);
+    width: 100%;
+    max-width: 550px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card-large:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(194, 24, 91, 0.4);
+    border-color: #c2185b;
+}
+
+.game-img-area {
+    height: 300px;
+    background-color: #121212;
+}
+
+.game-title {
+    color: #f48fb1;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.description-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.bg-pink {
+    background-color: #f48fb1 !important;
+    color: #121212;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    font-size: 0.9rem;
+}
+
+.bg-dark-pink {
+    background-color: #c2185b !important;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    font-size: 0.9rem;
+}
+
+.release-date-box {
+    background-color: rgba(194, 24, 91, 0.15);
+    border: 1px solid rgba(194, 24, 91, 0.3);
+    color: #f48fb1;
+    font-size: 0.95rem;
+}

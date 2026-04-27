@@ -84,7 +84,65 @@ h1:focus {
     text-align: end;
 }
 
-.form-floating>.form-control-plaintext:focus::placeholder,
 .form-floating>.form-control:focus::placeholder {
     text-align: start;
+}
+
+/* WSPÓŁDZIELONE STYLE: Home & RandomFreeGame */
+
+.header-bar {
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #2e2e2e;
+}
+
+.title-box {
+    border: 2px solid #c2185b;
+    border-radius: 12px;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 12px rgba(194, 24, 91, 0.4);
+}
+
+.title-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f48fb1;
+    white-space: nowrap;
+}
+
+.btn-outline-pink {
+    color: #f48fb1;
+    border-color: #c2185b;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-pink:hover {
+    background-color: #c2185b;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(194, 24, 91, 0.5);
+}
+
+.btn-sprawdz {
+    background: linear-gradient(135deg, #ad1457, #c2185b);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    border: none;
+    box-shadow: 0 4px 20px rgba(194, 24, 91, 0.5);
+    transition: all 0.25s ease;
+}
+
+.btn-sprawdz:hover:not(:disabled) {
+    background: linear-gradient(135deg, #c2185b, #e91e8c);
+    box-shadow: 0 6px 28px rgba(194, 24, 91, 0.7);
+    color: #fff;
+    transform: scale(1.04);
+}
+
+.btn-sprawdz:disabled {
+    background: #2e2e2e;
+    color: #555;
+    box-shadow: none;
+    cursor: not-allowed;
 }

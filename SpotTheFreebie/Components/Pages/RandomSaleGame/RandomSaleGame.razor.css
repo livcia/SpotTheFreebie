@@ -1,0 +1,62 @@
+.game-card-wide {
+    background-color: #1e1e1e;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid #2a2a2a;
+    box-shadow: 0 8px 32px rgba(194, 24, 91, 0.2);
+    width: 100%;
+    max-width: 1400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card-wide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(194, 24, 91, 0.4);
+    border-color: #c2185b;
+}
+
+.game-img-area-wide {
+    min-height: 250px;
+    background-color: #121212;
+}
+
+@media (min-width: 768px) {
+    .game-img-area-wide {
+        min-height: 100%;
+    }
+}
+
+.game-title {
+    color: #f48fb1;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.release-date-box {
+    background-color: rgba(194, 24, 91, 0.15);
+    border: 1px solid rgba(194, 24, 91, 0.3);
+    color: #f48fb1;
+    font-size: 0.95rem;
+}
+
+.price-strikethrough-large {
+    color: #f48fb1;
+    font-size: 1.75rem;
+    text-decoration: line-through;
+    text-decoration-color: #c2185b;
+    text-decoration-thickness: 4px;
+    opacity: 0.8;
+}
+
+.deal-item {
+    background-color: #2a2a2a;
+    border: 1px solid #3e3e3e;
+    transition: all 0.2s ease;
+}
+
+.deal-item:hover {
+    background-color: #383838;
+    border-color: #c2185b;
+    box-shadow: 0 4px 12px rgba(194, 24, 91, 0.2);
+    transform: translateX(4px);
+}
