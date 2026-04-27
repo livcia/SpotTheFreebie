@@ -1,4 +1,4 @@
-# Sprawozdanie z Laboratorium nr [X]
+# Sprawozdanie z Laboratorium nr 3
 **Przedmiot:** Integracja Systemów Informatycznych  
 **Temat:** Integracja z zewnętrznymi API i przetwarzanie danych  
 **Data:** 27.04.2026  
