@@ -101,8 +101,10 @@ Podczas laboratoriów zrobiłam initial commit na main, zamiast na feature/exter
   git add .
   git commit -m "implemented intergation with CheapShark API"
   ```
-- **Zrzuty ekranu / Fragmenty kodu:**
+- **Zrzuty ekranu / Fragmenty kodu:**  
+
   ![alt text](image.png)
+    
 
   **Model `StoreDealViewModel.cs`:**
   ```csharp
@@ -136,7 +138,8 @@ Podczas laboratoriów zrobiłam initial commit na main, zamiast na feature/exter
   ```bash
   git commit -m "Added internal endpoint"
   ```
-- **Zrzuty ekranu / Fragmenty kodu:**
+- **Zrzuty ekranu / Fragmenty kodu:**    
+
   ![alt text](image-1.png)
 
   W ramach działania endpointu wykorzystałam operatory LINQ do przetworzenia pobranych danych:
@@ -177,6 +180,14 @@ Podczas laboratoriów zrobiłam initial commit na main, zamiast na feature/exter
       .Average();
   ```
 
+### DODATKOWO:
+  Pushnięcie zmian lokalnych na serwis github:
+![alt text](image-2.png)
+  Stworzenie PR:
+![alt text](image-3.png)
+  Merge z main:
+![alt text](image-4.png)
+![alt text](image-5.png)
 ## 3. Dokumentacja pracy z Gitem
 - **Link do repozytorium:** [Link do Twojego repozytorium na GitHub]
 - **Historia commitów:** [Wstaw zrzut ekranu z `git log --oneline` lub link do historii na GitHub]
