@@ -3,6 +3,7 @@
 **Temat:** Integracja z zewnętrznymi API i przetwarzanie danych  
 **Data:** 27.04.2026  
 **Student:** Oliwia Ankiewicz  
+**Prezentacja wideo (Demo):** [https://youtu.be/ROTBubuCTV0](https://youtu.be/ROTBubuCTV0)
 
 ---
 
@@ -10,14 +11,16 @@
 Celem projektu było praktyczne wykorzystanie mechanizmów integracji systemów IT poprzez połączenie aplikacji z dwoma różnymi zewnętrznymi serwisami API. Skupiłam się na agregacji danych z serwisów FreeToGame oraz CheapShark.
 
 ## 2. Realizacja zadań
-Podczas laboratoriów zrobiłam initial commit na main, zamiast na feature/external-api-integration
+Przyznaję, że w trakcie pracy nieco zmieniłam kolejność realizacji – z pośpiechu najpierw utworzyłam projekt poleceniem dotnet new blazor i od razu wypchnęłam go na gałąź main, zapominając o wcześniejszym przygotowaniu gałęzi feature. Dopiero po tym kroku zorientowałam się, że instrukcja zakładała inny start.
+
+PS. Aplikacja nie działa jakoś mega szybko, ponieważ nie zrobiłam cache'owania ofert. 
 
 ### Zadanie 1: Przygotowanie struktury
 - **Opis działań:** Stworzyłam szkielet aplikacji w architekturze Blazor Server przy użyciu .NET 10. Skonfigurowałam strukturę katalogów (Components, Services, Models) oraz zainstalowałam bibliotekę Blazor.Bootstrap
 
 - **Zastosowane komendy PowerShell:**
   ```powershell
-  dotnet new blazorserver -o SpotTheFreebie
+  dotnet new blazor -o SpotTheFreebie
   dotnet add package Blazor.Bootstrap
   ```
 - **Zastosowane komendy Git:**
@@ -189,8 +192,10 @@ Podczas laboratoriów zrobiłam initial commit na main, zamiast na feature/exter
 ![alt text](image-4.png)
 ![alt text](image-5.png)
 ## 3. Dokumentacja pracy z Gitem
-- **Link do repozytorium:** [Link do Twojego repozytorium na GitHub]
-- **Historia commitów:** [Wstaw zrzut ekranu z `git log --oneline` lub link do historii na GitHub]
+- **Link do repozytorium:** https://github.com/livcia/SpotTheFreebie
+- **Historia commitów:** https://github.com/livcia/SpotTheFreebie/commits/feature/external-api-integration  
+
+![alt text](image-6.png)
 
 ## 4. Wnioski
 Podczas pracy nad projektem po raz pierwszy zaimplementowałam obsługę zapytań HTTP za pomocą HttpClient. Była to również doskonała okazja do zapoznania się z bogatą ofertą darmowych interfejsów API. Napotkane problemy z limitem zapytań (Too Many Requests) uświadomiły mi, że przy następnej podobnej aplikacji niezbędne będzie zastosowanie warstwy cache’ującej oraz bardziej restrykcyjne zarządzanie częstotliwością odświeżania danych, aby uniknąć blokad ze strony dostawców API.
